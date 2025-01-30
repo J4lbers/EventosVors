@@ -1,0 +1,42 @@
+<header class="sticky top-0 left-0 w-full bg-white shadow-md z-50">
+  <div class="flex justify-between items-center p-4 md:hidden">
+    <img src="img/logo.jpeg" alt="Logo" class="w-32 h-auto">
+    <button class="text-black focus:outline-none" (click)="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+  <div class="hidden md:flex justify-between items-center px-6 py-4">
+    <img src="img/logo.jpeg" alt="Logo" class="w-40 h-auto">
+    <nav>
+      <ul class="flex space-x-6">
+        <li><a href="#premios" class="hover:underline">Premios</a></li>
+        <li><a href="#sobre-nosotros" class="hover:underline">Sobre Nosotros</a></li>
+        <li><a href="#video" class="hover:underline">Video</a></li>
+        <li><a href="#formulario" class="hover:underline">Formulario</a></li>
+      </ul>
+    </nav>
+    <div class="flex items-center gap-2">
+      <h5 class="text-sm">Empieza en:</h5>
+      <div class="font-bold text-black text-sm">18d - 3h - 25m</div>
+    </div>
+  </div>
+  <div class="fixed inset-0 bg-black bg-opacity-50 z-40" *ngIf="isMenuOpen" (click)="toggleMenu()"></div>
+  <div 
+    class="fixed top-0 left-0 w-64 h-full bg-white shadow-md z-50 transform transition-transform duration-300 overflow-y-auto" 
+    [class.translate-x-0]="isMenuOpen" 
+    [class.-translate-x-full]="!isMenuOpen">
+    <nav class="flex flex-col p-6 space-y-4">
+      <button class="self-end focus:outline-none" (click)="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <a href="#premios" class="hover:underline" (click)="toggleMenu()">Premios</a>
+      <a href="#sobre-nosotros" class="hover:underline" (click)="toggleMenu()">Sobre Nosotros</a>
+      <a href="#video" class="hover:underline" (click)="toggleMenu()">Video</a>
+      <a href="#formulario" class="hover:underline" (click)="toggleMenu()">Formulario</a>
+    </nav>
+  </div>
+</header>

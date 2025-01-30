@@ -1,0 +1,11 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+  }
+  
+  * {
+    box-sizing: border-box; /* Asegúrate de que los márgenes y rellenos estén bien calculados */
+  }
+  
