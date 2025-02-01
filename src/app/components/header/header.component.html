@@ -1,4 +1,4 @@
-<header class="sticky top-0 left-0 w-full bg-white shadow-md z-50">
+<header class="sticky top-0 left-0 w-full bg-white z-50">
   <div class="flex justify-between items-center p-4 md:hidden">
     <img src="img/logo.jpeg" alt="Logo" class="w-32 h-auto">
     <button class="text-black focus:outline-none" (click)="toggleMenu()">
@@ -19,7 +19,9 @@
     </nav>
     <div class="flex items-center gap-2">
       <h5 class="text-sm">Empieza en:</h5>
-      <div class="font-bold text-black text-sm">18d - 3h - 25m</div>
+      <div class="font-bold text-black text-sm">
+        {{ days }}d - {{ hours }}h - {{ minutes }}m - {{ segundos }}s
+      </div>
     </div>
   </div>
   <div class="fixed inset-0 bg-black bg-opacity-50 z-40" *ngIf="isMenuOpen" (click)="toggleMenu()"></div>

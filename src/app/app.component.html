@@ -1,4 +1,6 @@
 <app-header></app-header>
+<router-outlet></router-outlet>
+
 <main>
     <!-- Premios Section -->
     <section id="premios" class="min-h-screen bg-white flex flex-col justify-center items-center">
@@ -22,11 +24,19 @@
             <app-video></app-video>
         </div>
     </section>
-
+    
     <!-- Formulario Section -->
-    <section id="formulario" class="h-screen bg-white flex justify-center items-center">
+    <section id="formulario" class=" bg-white flex justify-center items-center">
         <div class="container mx-auto px-4 text-center">
-            <app-formulario-participar></app-formulario-participar>
+            <app-formulario></app-formulario>
+        </div>  
+    </section>
+
+    <!-- GAnaores Section -->
+    <section id="video" class=" flex justify-center items-center"
+        style="background-color: rgb(255, 255, 255)">
+        <div class="container mx-auto px-4 text-center">
+            <app-ganadores></app-ganadores>
         </div>
     </section>
 </main>
