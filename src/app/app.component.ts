@@ -21,7 +21,7 @@ import { provideHttpClient } from '@angular/common/http';
     VideoComponent,
     PremioMayorComponent,
     FormularioComponent,
-    RouterOutlet,
+    // RouterOutlet,
     GanadoresComponent
 ],
   providers: [],

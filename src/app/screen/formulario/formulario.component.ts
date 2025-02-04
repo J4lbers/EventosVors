@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FormularioService } from '../../services/formulario.service';
+import { FormularioService } from '../../service/formulario.service';
+
 
 @Component({
   selector: 'app-formulario',
@@ -12,7 +13,7 @@ import { FormularioService } from '../../services/formulario.service';
 })
 export class FormularioComponent {
 
-  // constructor(private formularioService: FormularioService) {}
+  constructor(private formularioService: FormularioService) {}
   imagenSeleccionada: File | null = null;
   imagenBase64: string | null = null;
 
@@ -58,15 +59,7 @@ export class FormularioComponent {
 
     if (this.imagenSeleccionada) {
       formData.append('imagen', this.imagenSeleccionada);
+      this.formularioService.cargarFomulario(formData)  
     }
-
-    // Simula envío al backend
-    // console.log('Datos enviados al backend:', formData);
-    
-    // Aquí podrías usar HttpClient para enviar los datos
-    // Ejemplo:
-    // this.http.post('tu-url-endpoint', formData).subscribe(response => {
-    //   console.log('Respuesta del servidor:', response);
-    // });
   }  
 }
