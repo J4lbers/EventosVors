@@ -2,7 +2,7 @@ label {
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   label:hover {
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     color: #333;
   }
   
@@ -10,7 +10,15 @@ label {
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   button:hover {
-    background-color: #f8d7da;
+    background-color: #ffffff;
+    transform: scale(1.1);
+  }
+  
+  input {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  input:hover {
+    background-color: #ffffff;
     transform: scale(1.1);
   }
   

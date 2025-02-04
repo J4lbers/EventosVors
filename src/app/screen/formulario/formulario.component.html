@@ -34,23 +34,40 @@
       <div class="rounded-lg p-6 shadow-md" style="background-color: rgba(234, 218, 0, 1)">
         <h3 class="text-xl md:text-2xl font-semibold mb-4 text-center">Paso 3</h3>
         <form class="space-y-4 max-w-md mx-auto" (submit)="enviarFormulario()">
-          <input type="text" [(ngModel)]="formularioData.dni" placeholder="DNI" class="w-full p-3 rounded-lg border border-gray-300" required />
-          <input type="text" [(ngModel)]="formularioData.nombres" placeholder="Nombres" class="w-full p-3 rounded-lg border border-gray-300" required />
-          <input type="text" [(ngModel)]="formularioData.apellidos" placeholder="Apellidos" class="w-full p-3 rounded-lg border border-gray-300" required />
-          <input type="tel" [(ngModel)]="formularioData.telefono" placeholder="Teléfono" class="w-full p-3 rounded-lg border border-gray-300" required />
-          <input type="text" [(ngModel)]="formularioData.direccion" placeholder="Dirección" class="w-full p-3 rounded-lg border border-gray-300" required />
-          <input type="text" [(ngModel)]="formularioData.numeroConfirmacion" placeholder="Número de operación" class="w-full p-3 rounded-lg border border-gray-300" required />
+          <input type="text" [(ngModel)]="formularioData.dni" placeholder="DNI" name="dni" class="w-full p-3 rounded-lg border border-gray-300" required />
+          <input type="text" [(ngModel)]="formularioData.nombres" placeholder="Nombres" name="nombres" class="w-full p-3 rounded-lg border border-gray-300" required />
+          <input type="text" [(ngModel)]="formularioData.apellidos" placeholder="Apellidos" name="apellidos" class="w-full p-3 rounded-lg border border-gray-300" required />
+          <input type="tel"  [(ngModel)]="formularioData.telefono" placeholder="Teléfono" name="telefono" class="w-full p-3 rounded-lg border border-gray-300" required />
+          <input type="text" [(ngModel)]="formularioData.direccion" placeholder="Dirección" name="direccion" class="w-full p-3 rounded-lg border border-gray-300" required />
+          <input type="text" [(ngModel)]="formularioData.numeroConfirmacion" placeholder="Número de operación" name="numeroConfirmacion" class="w-full p-3 rounded-lg border border-gray-300" required />
+          <!-- <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+          <img *ngIf="imagenBase64" [src]="imagenBase64" alt="Vista previa de la imagen" /> -->
+          <!-- Carga de imagen-->
+          <!-- <button type="button" class="flex items-center justify-center w-full px-4 py-2 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100" (click)="seleccionarImagen()">📤 Subir comprobante</button> -->
+          <!-- Vista previa de la imagen -->
+          <!-- <div *ngIf="imagenBase64">
+            <img [src]="imagenBase64" alt="Imagen Seleccionada" style="max-width: 100%; height: auto;">
+            <button type="button" (click)="eliminarImagen()">Eliminar Imagen</button>
+          </div>  -->
+            <!-- Mostrar solo en dispositivos móviles -->
+          <!-- <div *ngIf="<<<platform.ANDROID || platform.IOS>>>"> -->
+            @if ( platform.ANDROID || platform.IOS ) {
+              <!-- Elementos específicos para móviles -->
+              <button type="button" class="flex items-center justify-center w-full px-4 py-2 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100" (click)="seleccionarImagen()">📤 Subir comprobante</button>
+            }
+          <!-- </div> -->
 
-          <!-- Carga de imagen -->
-          <label for="fileInput" class="flex items-center justify-center w-full px-4 py-2 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100">
-            📤 Subir comprobante
-            <input type="file" id="fileInput" accept="image/*" class="hidden" (change)="onFileSelected($event)" />
-          </label>
+          @if (!platform.ANDROID && !platform.IOS) {
+            <!-- Mostrar solo en navegadores web -->
+            <!-- Elementos específicos para web -->
+            <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+            <img *ngIf="imagenBase64" [src]="imagenBase64" alt="Vista previa de la imagen" />
+          }
 
           <!-- Vista previa de la imagen -->
-          <div *ngIf="imagenBase64" class="relative mt-4">
-            <img [src]="imagenBase64" alt="Vista previa" class="w-full h-48 object-contain rounded-lg border" />
-            <button type="button" (click)="eliminarImagen()" class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600">✖️</button>
+          <div *ngIf="imagenBase64">
+            <img [src]="imagenBase64" alt="Imagen Seleccionada" style="max-width: 100%; height: auto;">
+            <button type="button" (click)="eliminarImagen()">Eliminar Imagen</button>
           </div>
 
           <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
